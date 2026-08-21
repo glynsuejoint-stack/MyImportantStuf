@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f7fb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Drive Files" />
+  <title>Drive Files</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><p class="eyebrow">MY IMPORTANT STUFF · TEST APP</p><h1>Drive Files</h1><p class="sub">A simple iPad view of one Google Drive folder.</p></div>
+      <button id="settingsBtn" class="icon-btn" aria-label="Settings">⚙︎</button>
+    </header>
+    <section id="setupCard" class="card setup-card">
+      <div class="card-title-row"><div><h2>Setup</h2><p>Enter these once on this iPad. They stay in this browser only.</p></div><span id="setupBadge" class="badge">Not configured</span></div>
+      <label>Google OAuth Client ID<input id="clientId" inputmode="text" autocomplete="off" placeholder="1234…apps.googleusercontent.com" /></label>
+      <label>Google Drive Folder ID<input id="folderId" inputmode="text" autocomplete="off" placeholder="Paste the folder ID" /></label>
+      <label>Google Sheet ID <span class="muted">(optional for this first test)</span><input id="sheetId" inputmode="text" autocomplete="off" placeholder="Paste the Sheet ID" /></label>
+      <label>Sheet tab name<input id="sheetTab" inputmode="text" autocomplete="off" value="Files" /></label>
+      <div class="actions"><button id="saveSettings" class="secondary">Save setup</button><button id="demoBtn" class="ghost">Show demo</button></div>
+    </section>
+    <section class="card connect-card"><div><h2>Google connection</h2><p id="authStatus">Not connected</p></div><button id="connectBtn" class="primary">Connect Google</button></section>
+    <section class="toolbar"><div><p class="eyebrow">FILES</p><h2 id="fileCount">Nothing loaded yet</h2></div><button id="refreshBtn" class="secondary" disabled>Refresh</button></section>
+    <section id="message" class="message hidden"></section><section id="fileList" class="file-list" aria-live="polite"></section>
+    <footer><p>Prototype: read-only Google Drive + optional Google Sheet metadata.</p></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
